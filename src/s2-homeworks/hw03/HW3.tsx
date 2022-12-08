@@ -29,7 +29,7 @@ export const pureAddUserCallback = (name: string, setUsers: (users: Array<UserTy
         // нужно создать новый объект соответствующий типу UserType
         // не забыть   сгенеририовать _id и вставить пришедший в функцию name
 
-        _id: 'user_123',
+        _id: v1(),
         name: name
     }
     //засетайЮзеров([...старые users, и наш новый user])
