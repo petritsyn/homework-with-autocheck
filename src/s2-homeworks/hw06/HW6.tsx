@@ -21,7 +21,7 @@ const HW6 = () => {
     const restore = () => {
         // делают студенты
         // ЗАСЕТАТЬ(restoreState<ТИПИЗАЦИЯ>(КЛЮЧ,''))
-        setValue(restoreState<string>('editable-span-value', ''))
+        setValue(restoreState<string>('hw6-editable-span-value', ''))
     }
 
     return (
