@@ -50,7 +50,7 @@ const HW8 = () => {
     const check18 = () => {
         sortDown()
         setPeople(
-            homeWorkReducer(initialPeople, {type: 'check', payload: 18})
+            homeWorkReducer(initialPeople, {type: 'check', payload: 18}).reverse()
         ) // совершеннолетние
         setCurrentSort('18')
     }
