@@ -22,7 +22,7 @@ export const homeWorkReducer = (state: Array<UserType>, action: ActionType): Arr
         }
         case 'check': {
             // filter() создаёт новый массив? или нужно в ручную?...
-            return [...state.filter((el: UserType) => el.age > 17)]
+            return [...state.filter((el: UserType) => el.age > 17)].reverse()
         }
         default:
             return state
