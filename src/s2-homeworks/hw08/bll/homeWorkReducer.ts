@@ -8,7 +8,7 @@ export const homeWorkReducer = (state: Array<UserType>, action: ActionType): Arr
     switch (action.type) {
         case 'sort': { // by name
             // sort() создаёт новый массив? или нужно в ручную?...
-            let newState = state.sort((a: UserType, b: UserType) => {
+            return [...state.sort((a: UserType, b: UserType) => {
                 if (action.payload === 'up') {
                     if (a.name < b.name) {return -1}
                     if (a.name > b.name) {return 1}
@@ -17,12 +17,11 @@ export const homeWorkReducer = (state: Array<UserType>, action: ActionType): Arr
                     if (a.name < b.name) {return 1}
                 }
                 return 0
-            })
-            return newState // need to fix
+            })]
         }
         case 'check': {
             // filter() создаёт новый массив? или нужно в ручную?...
-            return [...state.filter((el: UserType) => el.age > 17)].reverse()
+            return state.filter((el: UserType) => el.age > 17).reverse()
         }
         default:
             return state
