@@ -1,4 +1,9 @@
 .buttonsContainer {
+    margin-top: 20px;
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .clock {
@@ -11,4 +16,6 @@
 }
 
 .more {
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 5px;
 }
