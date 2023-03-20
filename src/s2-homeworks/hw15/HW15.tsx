@@ -5,6 +5,8 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 /*
 * 1 - дописать SuperPagination
@@ -54,8 +56,11 @@ const HW15 = () => {
                 // делает студент
 
                 // сохранить пришедшие данные
-
-                //
+                if (res) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
+                setLoading(false)
             })
     }
 
@@ -64,21 +69,24 @@ const HW15 = () => {
 
         // setPage(
         // setCount(
+        setPage(newPage)
+        setCount(newCount)
 
         // sendQuery(
         // setSearchParams(
-
-        //
+        sendQuery({page: newPage, count: newCount})
+        setSearchParams(String(newCount))
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
 
         // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSort(newSort)
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery(newSort)
+        setSearchParams(newSort)
 
         //
     }
@@ -107,7 +115,7 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                {idLoading && <div id={'hw15-loading'} className={s.loading}><CircularIndeterminate/></div>}
 
                 <SuperPagination
                     page={page}
@@ -132,6 +140,14 @@ const HW15 = () => {
             </div>
         </div>
     )
+}
+
+function CircularIndeterminate() {
+    return <div>
+        <Box sx={{ display: 'flex', zIndex: 'tooltip', justifyContent: 'center'}}>
+            <CircularProgress size='10rem' sx={{}} />
+        </Box>
+    </div>
 }
 
 export default HW15
